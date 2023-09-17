@@ -57,7 +57,15 @@
     <Analyzer Include="C:\Program Files\Unity 2022.2.0f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\inimigo.cs" />
+    <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\EnemyController.cs" />
+    <Compile Include="Assets\EnemyBulletController.cs" />
+    <Compile Include="Assets\RestartLevel.cs" />
+    <Compile Include="Assets\BulletController.cs" />
+    <Compile Include="Assets\PlayerScore.cs" />
+    <Compile Include="Assets\BaseDefeat.cs" />
+    <Compile Include="Assets\BaseHealth.cs" />
+    <Compile Include="Assets\GameOver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
