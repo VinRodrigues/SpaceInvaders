@@ -59,13 +59,17 @@
   <ItemGroup>
     <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\EnemyController.cs" />
+    <Compile Include="Assets\MenuController.cs" />
     <Compile Include="Assets\EnemyBulletController.cs" />
     <Compile Include="Assets\RestartLevel.cs" />
     <Compile Include="Assets\BulletController.cs" />
     <Compile Include="Assets\PlayerScore.cs" />
     <Compile Include="Assets\BaseDefeat.cs" />
+    <Compile Include="Assets\UFOScript.cs" />
     <Compile Include="Assets\BaseHealth.cs" />
     <Compile Include="Assets\GameOver.cs" />
+    <Compile Include="Assets\LifeObject.cs" />
+    <Compile Include="Assets\Win.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

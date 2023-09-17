@@ -13,12 +13,22 @@ public class PlayerController : MonoBehaviour
     public Transform shotSpawn;
     public float fireRate;
 
-    private float nextFire;
+    public int maxLives = 3; // Número máximo de vidas do jogador
+    private int currentLives; // Vidas atuais do jogador
+    private bool isDamaged = false; // Indicador se o jogador está danificado
 
+    private float nextFire;
+    // Referência ao componente Animator do jogador
+    private Animator animator;
+
+    // Indicador se o jogador está danificado
+   
     // Use this for initialization
     void Start()
     {
+        currentLives = maxLives;
         player = GetComponent<Transform>();
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -40,6 +50,40 @@ public class PlayerController : MonoBehaviour
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
         }
+
+    }
+    public void TakeDamage(int damage)
+    {
+        if (!isDamaged)
+        {
+            currentLives -= damage;
+
+            if (currentLives <= 0)
+            {
+                
+                GameOver.isPlayerDead = true;
+                
+            }
+            else
+            {
+                
+                StartCoroutine(ResetPlayerAfterAnimation(1.5f)); 
+            }
+        }
+    }
+
+    IEnumerator ResetPlayerAfterAnimation(float delay)
+    {
+        isDamaged = true;
+        yield return new WaitForSeconds(delay);
+
+        // Restaure a vida do jogador (se desejar)
+        // ...
+
+        // Reinicie a animação de respawn (se necessário)
+        // ...
+
+        isDamaged = false;
     }
 
 }
