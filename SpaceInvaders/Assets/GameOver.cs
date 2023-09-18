@@ -24,13 +24,14 @@ public class GameOver : MonoBehaviour
 
             // Use Invoke para aguardar 5 segundos (ou o tempo desejado) e chamar uma função que carregará outra cena
             Invoke("LoadNextScene", 3.0f);
+            
         }
     }
 
     // Função para carregar outra cena
     void LoadNextScene()
     {
-        // Use o SceneManager para carregar a próxima cena por seu nome ou índice
-        SceneManager.LoadScene("gameover"); // Substitua "NomeDaSuaCena" pelo nome da cena que deseja carregar
+        
+        SceneManager.LoadScene("gameover"); 
     }
 }

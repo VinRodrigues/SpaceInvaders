@@ -8,27 +8,30 @@ public class PlayerController : MonoBehaviour
     private Transform player;
     public float speed;
     public float maxBound, minBound;
+  
 
     public GameObject shot;
     public Transform shotSpawn;
     public float fireRate;
 
-    public int maxLives = 3; // Número máximo de vidas do jogador
-    private int currentLives; // Vidas atuais do jogador
-    private bool isDamaged = false; // Indicador se o jogador está danificado
+    public int maxLives = 3; 
+    private int currentLives; 
+    private bool isDamaged = false; 
 
     private float nextFire;
-    // Referência ao componente Animator do jogador
+  
     private Animator animator;
+    private AudioSource playerAudioSource;
 
-    // Indicador se o jogador está danificado
+
    
-    // Use this for initialization
     void Start()
     {
         currentLives = maxLives;
         player = GetComponent<Transform>();
         animator = GetComponent<Animator>();
+        playerAudioSource = GetComponent<AudioSource>();
+
     }
 
     void FixedUpdate()
@@ -49,6 +52,10 @@ public class PlayerController : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            if (playerAudioSource != null)
+            {
+                playerAudioSource.Play(); 
+            }
         }
 
     }

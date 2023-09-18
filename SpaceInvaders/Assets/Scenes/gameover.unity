@@ -848,7 +848,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1223,10 +1223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ec40a92f80fc94988ee0eef87aa940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winText: {fileID: 1814672560}
-  targetScore: 100
-  scoreText: {fileID: 1156261862}
-  player: {fileID: 0}
 --- !u!114 &1814672560
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Enemy2
   - Enimy3
+  - UFO
   layers:
   - Default
   - TransparentFX

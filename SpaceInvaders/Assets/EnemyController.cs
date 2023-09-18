@@ -12,12 +12,31 @@ public class EnemyController : MonoBehaviour
     public float fireRate = 0.997f;
     private Animator animator; // Referência ao componente Animator
 
+    public GameObject ufoPrefab; // Prefab do UFO
+    public Transform ufoSpawnPoint; // Ponto de spawn do UFO
+    public float ufoSpawnInterval = 10.0f; // Intervalo de spawn do UFO
+
+    private float timeSinceLastUFOSpawn = 0.0f; // Contador para controlar o spawn do UFO
+
     void Start()
     {
         winText.enabled = false;
         InvokeRepeating("MoveEnemy", 0.1f, 0.3f);
         enemyHolder = GetComponent<Transform>();
         animator = GetComponent<Animator>(); // Obtenha a referência ao componente Animator
+
+        ufoSpawnPoint = GameObject.Find("UFOSpawnPoint").transform; // Altere "UFOSpawnPoint" para o nome do objeto onde deseja que o UFO seja spawnado.
+    }
+
+    void Update()
+    {
+        // Controle de spawn do UFO
+        timeSinceLastUFOSpawn += Time.deltaTime;
+        if (timeSinceLastUFOSpawn >= ufoSpawnInterval)
+        {
+            SpawnUFO();
+            timeSinceLastUFOSpawn = 0.0f;
+        }
     }
 
     void MoveEnemy()
@@ -61,5 +80,11 @@ public class EnemyController : MonoBehaviour
             float animationDuration = 2.0f;
             Destroy(gameObject, animationDuration);
         }
+    }
+
+    void SpawnUFO()
+    {
+        // Instancia o UFO a partir do Prefab no ponto de spawn
+        Instantiate(ufoPrefab, ufoSpawnPoint.position, Quaternion.identity);
     }
 }
