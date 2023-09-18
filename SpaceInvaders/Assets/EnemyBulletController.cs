@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class EnemyBulletController : MonoBehaviour {
 
 	private Transform bullet;
@@ -25,11 +25,17 @@ public class EnemyBulletController : MonoBehaviour {
 			Destroy (other.gameObject);
 			Destroy (gameObject);
 			GameOver.isPlayerDead = true;
-		} else if (other.tag == "Base") {
+            Invoke("LoadGameOverScene", 3f);
+        } else if (other.tag == "Base") {
 			GameObject playerBase = other.gameObject;
 			BaseHealth baseHealth = playerBase.GetComponent<BaseHealth> ();
 			baseHealth.health -= 1;
 			Destroy (gameObject);
 		}
 	}
+
+    void LoadGameOverScene()
+    {
+        SceneManager.LoadScene("gameover"); 
+    }
 }

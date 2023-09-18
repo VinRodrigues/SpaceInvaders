@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; // Importe o namespace para gerenciamento de cenas
+using UnityEngine.SceneManagement; 
 
 public class GameOver : MonoBehaviour
 {
@@ -19,11 +19,11 @@ public class GameOver : MonoBehaviour
     {
         if (isPlayerDead)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             gameOver.enabled = true;
 
             // Use Invoke para aguardar 5 segundos (ou o tempo desejado) e chamar uma função que carregará outra cena
-            Invoke("LoadNextScene", 5.0f);
+            Invoke("LoadNextScene", 3.0f);
         }
     }
 

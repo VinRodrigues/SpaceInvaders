@@ -14,5 +14,14 @@ public class RestartLevel : MonoBehaviour {
 
 			SceneManager.LoadScene ("fase1");
 		}
-	}
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            PlayerScore.playerScore = 0;
+            Win.isPlayerDead = false;
+            Time.timeScale = 1;
+
+            SceneManager.LoadScene("menu");
+        }
+
+    }
 }
