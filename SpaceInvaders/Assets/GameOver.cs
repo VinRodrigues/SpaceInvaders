@@ -22,13 +22,13 @@ public class GameOver : MonoBehaviour
             //Time.timeScale = 0;
             gameOver.enabled = true;
 
-            // Use Invoke para aguardar 5 segundos (ou o tempo desejado) e chamar uma função que carregará outra cena
-            Invoke("LoadNextScene", 3.0f);
+            
+            Invoke("LoadNextScene", 1.0f);
             
         }
     }
 
-    // Função para carregar outra cena
+    
     void LoadNextScene()
     {
         

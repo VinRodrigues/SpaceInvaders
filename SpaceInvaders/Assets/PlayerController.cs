@@ -84,12 +84,7 @@ public class PlayerController : MonoBehaviour
         isDamaged = true;
         yield return new WaitForSeconds(delay);
 
-        // Restaure a vida do jogador (se desejar)
-        // ...
-
-        // Reinicie a animação de respawn (se necessário)
-        // ...
-
+      
         isDamaged = false;
     }
 

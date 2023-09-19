@@ -10,27 +10,27 @@ public class EnemyController : MonoBehaviour
     public GameObject shot;
     public Text winText;
     public float fireRate = 0.997f;
-    private Animator animator; // Referência ao componente Animator
+    private Animator animator; 
 
-    public GameObject ufoPrefab; // Prefab do UFO
-    public Transform ufoSpawnPoint; // Ponto de spawn do UFO
-    public float ufoSpawnInterval = 10.0f; // Intervalo de spawn do UFO
+    public GameObject UFO; 
+    public Transform ufoSpawnPoint; 
+    public float ufoSpawnInterval = 10.0f; 
 
-    private float timeSinceLastUFOSpawn = 0.0f; // Contador para controlar o spawn do UFO
+    private float timeSinceLastUFOSpawn = 0.0f; 
 
     void Start()
     {
         winText.enabled = false;
         InvokeRepeating("MoveEnemy", 0.1f, 0.3f);
         enemyHolder = GetComponent<Transform>();
-        animator = GetComponent<Animator>(); // Obtenha a referência ao componente Animator
+        animator = GetComponent<Animator>(); 
 
-        ufoSpawnPoint = GameObject.Find("UFOSpawnPoint").transform; // Altere "UFOSpawnPoint" para o nome do objeto onde deseja que o UFO seja spawnado.
+        ufoSpawnPoint = GameObject.Find("UFOSpawnPoint").transform; 
     }
 
     void Update()
     {
-        // Controle de spawn do UFO
+        
         timeSinceLastUFOSpawn += Time.deltaTime;
         if (timeSinceLastUFOSpawn >= ufoSpawnInterval)
         {
@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour
                 return;
             }
 
-            // EnemyBulletController called too?
+            
             if (Random.value > fireRate)
             {
                 Instantiate(shot, enemy.position, enemy.rotation);
@@ -73,10 +73,10 @@ public class EnemyController : MonoBehaviour
 
         if (enemyHolder.childCount == 0)
         {
-            // Ative o trigger "Destroy" para iniciar a animação de destruição
+            
             animator.SetTrigger("DestroyTrigger");
 
-            // Agende a destruição do objeto após a duração da animação (ajuste conforme necessário)
+            
             float animationDuration = 2.0f;
             Destroy(gameObject, animationDuration);
         }
@@ -84,7 +84,7 @@ public class EnemyController : MonoBehaviour
 
     void SpawnUFO()
     {
-        // Instancia o UFO a partir do Prefab no ponto de spawn
-        Instantiate(ufoPrefab, ufoSpawnPoint.position, Quaternion.identity);
+       
+        Instantiate(UFO, ufoSpawnPoint.position, Quaternion.identity);
     }
 }

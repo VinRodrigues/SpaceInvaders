@@ -21,7 +21,7 @@ public class Win : MonoBehaviour
         {
             win.enabled = true;
 
-            // Use Invoke para aguardar 5 segundos (ou o tempo desejado) e chamar uma função que carregará outra cena
+            
             Invoke("LoadNextScene", 1.0f);
         }
     }
@@ -29,6 +29,6 @@ public class Win : MonoBehaviour
     // Função para carregar outra cena
     void LoadNextScene()
     {
-        SceneManager.LoadScene("winscene"); // Substitua "winscene" pelo nome da cena que deseja carregar
+        SceneManager.LoadScene("winscene"); 
     }
 }

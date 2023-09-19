@@ -6,11 +6,11 @@ public class BulletController : MonoBehaviour
 {
     private Transform bullet;
     public float speed;
-    private AudioSource audioSource; // Variável para o componente AudioSource
-    public AudioClip hitSound; // Som para a colisão com um inimigo
-    public AudioClip destroySound; // Som para quando a bala é destruída
+    private AudioSource audioSource; 
+    public AudioClip hitSound; 
+    public AudioClip destroySound; 
     
-    // Adicione estas variáveis para armazenar os dois AudioSources
+    
 
 
 
@@ -20,7 +20,7 @@ public class BulletController : MonoBehaviour
     {
         bullet = GetComponent<Transform>();
 
-        // Obtenha as referências dos dois AudioSources (devem ser configuradas no Inspector)
+        
         audioSource = GetComponent<AudioSource>();
 
 
@@ -59,6 +59,14 @@ public class BulletController : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
             PlayerScore.playerScore += 30;
+            audioSource.PlayOneShot(destroySound);
+
+        }
+        if (other.tag == "UFO")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            
             audioSource.PlayOneShot(destroySound);
 
         }

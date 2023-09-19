@@ -604,8 +604,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87928847}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 3.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11044,8 +11044,8 @@ MonoBehaviour:
   shot: {fileID: 7999239533198316814, guid: 2401697319629ed48bc899d174dab2da, type: 3}
   winText: {fileID: 2116438268}
   fireRate: 0.997
-  ufoPrefab: {fileID: 0}
-  ufoSpawnPoint: {fileID: 0}
+  UFO: {fileID: 3317432074134935937, guid: 9155d7c6b4b87a2458852da34bc1318e, type: 3}
+  ufoSpawnPoint: {fileID: 87928848}
   ufoSpawnInterval: 10
 --- !u!4 &1708683623
 Transform:
@@ -11168,7 +11168,7 @@ Animator:
   m_GameObject: {fileID: 1708683620}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b0b2382e4302e7a4b95472763578cd28, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4aa2a93089243c749bb30151931b2773, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
